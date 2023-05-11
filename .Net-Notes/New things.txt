@@ -1,0 +1,6 @@
+string.Format("{0} {1} ",First object, second object); - easy format way
+continue; - if in a while loop inside a condition and you want it to start from the start of the loop & break to end it 
+cw+enter - shortcut for console.writeline
+stringName.trim() - removes blank space at end 
+stringBuilder - mutable string
+@"stringVariable" - @(verbatim) takes whatever is in the "" 

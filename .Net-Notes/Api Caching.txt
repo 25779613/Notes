@@ -1,0 +1,8 @@
+*Install Strathweb.Cache.Output.Webapi2
+
+**on top of the method that requires caching -get method add
+[CacheOutput(ClientTimeSpan = 60,ServerTimeSpan =60)] 
+
+** caching get request in local storage ,
+** ClientTimeSpan =60 is time stored on client machine (requests go from cache then to server),
+** ServerTimeSpan =60 is the time block for requests to the server

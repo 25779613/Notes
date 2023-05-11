@@ -1,0 +1,34 @@
+**install ef nuget package
+
+**add data folder, add DbContext class , :DbContext
+
+**add connection string to web config file
+
+<connectionStrings>
+		<add name="QuotesDbContext"
+   connectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=QuotesApiDb;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\QuotesApiDb.mdf"
+   providerName="System.Data.SqlClient"
+/>
+	</connectionStrings>
+
+**scaffhold class controller with get methods
+QuotesDbContext dbContext = new QuotesDbContext();
+        // GET: api/Quotes
+        //public IEnumerable<Quote> Get()
+        //{
+        //    return dbContext.Quotes;
+        //}
+        public IHttpActionResult Get()
+        {
+            var quotes = dbContext.Quotes;
+            return Ok(quotes);
+        }
+
+**run code will create db
+
+**to add attributes to the database, after model is changed
+enable-migrations
+**add the migration with the identifying name
+add-migration QuoteTypeAdded
+**update the db
+update-database

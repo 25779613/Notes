@@ -1,0 +1,25 @@
+*Add entityframework nuget package at solution level, check under installed and choose the project you want to add it to
+**swop out the connection string in web.config folder to sql database
+*in ssms change name to localhost and connect
+
+**change the default connection to point at sql db
+  <connectionStrings>
+    <add name="DefaultConnection" connectionString="Data Source=localhost;Initial Catalog=aspnet-MyShop;Integrated Security=True" providerName="System.Data.SqlClient" />
+	                                                                                                    <!--in production remove Integrated security and replace with, User Id = user: Password = password-->
+  </connectionStrings>
+
+** create a data context class
+**In the Sql data access project, under app.config , add the connection string before the entity framework section
+
+** in data context
+public class DataContext : DbContext
+    {
+        public DataContext(): base("DefaultConnection") { }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+    }
+
+** use package manager console, set default project to sql project and run these scripts
+PM> Enable-Migrations
+PM> Add-Migration Initial
+PM> Update-Database
